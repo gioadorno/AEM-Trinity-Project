@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Acquisition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contracts">
+  <link rel="stylesheet" href="acqtable.css">
+
+</head>
+
+<body>
+<header style="width:100%;">
+<!------------------------------------Navigation Bar Start--------------------------------------------------->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav role="navigation" >
+  <div id="menuToggle">
+      <input class="checkBox" type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+    <ul class="navigation" id="menu">
+      <li class="navItem"><a href="/Sendgrid Stats/stats.html">Sendgrid Stats</a></li>
+      <li class="navItem"><a href='acq-table.html'>Acq Properties</a></li>
+      <li class="navItem"><a href='dispoForm.html'>Dispo Properties</a></li>
+      <li class="navItem"><a href="/map2.html">Map</a></li>
+      <div class="dropdown">
+          <li class="dropbtn"><a>Forms</i></a></li>
+          <div class="dropdown-content">
+            <a id="atlanta" href="acq-forms.html">Acquisition</a>
+            <a id="birmingham" href="dispoForm.html">Disposition</a>
+          </div>
+      </div>
+
+      <li style="text-align: center;width: 20%;margin-right: 0%;" class="topTitle"><h1><i style="color: white; font-size: 40px; letter-spacing: 1px;">Trinity</i></h1></li>
+      <!--directs to the login html page, no escape from login yet-->
+      <li style="width: 40%;text-align: right;margin-right: 0%;" class="navItem" id="navLogin"><a href="/Login/login.html" class="login">Log In</a></li>
+      <br>
+      <li style="text-align: center;border-bottom: 2px solid black;border-radius: 5px;" class="topTitle2"><h1><i style="color: black; text-align: center; display:contents; letter-spacing: 2px;">Trinity</i></h1></li>
+    </ul>
+  </div>
+</nav>
+
+<!------------------------------------Navigation Bar End----------------------------------------------------->
+</header>
+
+<!-------------------------------------------------------------Statistics--------------------------------------------------------------------------------------->
+
+<!------------------Campaign Begin------------------------->
+<h2 style="text-align: center; font-style: italic; font-family: initial; font-size: 37px; margin: 5px;">Acq Properties</h2>
+
+
+<b style="margin-left: 20px;">Search Properties: 
+  <input id="filterTable" type="text" placeholder="Search here" style="background-color: aliceblue; display: inline; margin-left: 10px; padding: 2px 7px 2px 7px;">
+</b>
+<div class="limiter">
+  <div class="container-table100">
+    <div class="wrap-table100">
+        <div class="table100">
+            <table class="table" id="myTable">
+              <thead>
+                 <tr class="table100-head">
+                    <th class="column1">Name
+                      <!-- <select id="select1">
+                      <option id="option1"></option>
+                    </select> -->
+                    </th>
+                    <th class="column2">Written Offer</th>
+                    <th class="column2">Supplier</th>
+                    <th class="column2">Supplier Name</th>
+                    <th class="column2">Supplier Email</th>
+                    <th class="column2">Supplier Phone</th>
+                    <th class="column2">Prop. Address</th>
+                    <th class="column2">ARV</th>
+                    <th class="column2">Net Price</th>
+                    <th class="column2">Sale Price Expectation</th>
+                    <th class="column2">EMD</th>
+                    <th class="column2">Option Fee</th>
+                    <th class="column2">Deal Split</th>
+                    <th class="column2">Send JV Agreement?</th>
+                    <th class="column2">Additional Cost</th>
+                    <th class="column2">Are We Paying Close Cost?</th>
+                    <th class="column2">COE Date</th>
+                    <th class="column2">IP Length</th>
+                    <th class="column2">Title Company or Attorney Name</th>
+                    <th class="column2">Title Officer Name</th>
+                    <th class="column2">Title Company Email</th>
+                    <th class="column2">Title Company Phone Number</th>
+                    <th class="column2">Type of Access</th>
+                    <th class="column2">Post Possession?</th>
+                    <th class="column2">Lease Details</th>
+                    <th class="column2">Current Rent, If Tenant Occupied</th>
+                    <th class="column2">Least Term, If Tenant Occupied</th>
+                    <th class="column2">Additional Notes of Supplier/Agent</th>
+                    <th class="column2">Bedrooms</th>
+                    <th class="column2">Baths</th>
+                    <th class="column2">Parking</th>
+                    <th class="column2">Pool</th>
+                    <th class="column2">Living Area (Sqft)</th>
+                    <th class="column2">Lot Size (Sqft or Acres)</th>
+                    <th class="column2">Year Built</th>
+                    <th class="column2">Link to Pictures</th>
+                 </tr>
+              </thead>
+
+              <tbody class="tableBody">
+                <!-- <tr class="dataRow" style="display:none;">
+                  <td class="tableDatas" id="dataName">Full Name</td>
+                  <td class="tableDatas" id="dataWrittenOffer">Written Offer</td>
+                  <td class="tableDatas" id="dataSupplier">Supplier</td>
+                  <td class="tableDatas" id="dataSupplierPhone">Supplier Phone #</td>
+                  <td class="tableDatas" id="dataAddress">3377 S. Price Rd. Chandler, AZ 85204</td>
+                  <td class="tableDatas" id="dataARV">ARV</td>
+                  <td class="tableDatas" id="dataNetPrice">Net Price</td>
+                  <td class="tableDatas" id="dataSalePrice">Sale Price Expectation</td>
+                  <td class="tableDatas" id="dataEMD">EMD</td>
+                  <td class="tableDatas" id="dataOptionFee">Option Fee</td>
+                  <td class="tableDatas" id="dataDealSplit">Deal Split</td>
+                  <td class="tableDatas" id="dataJvAggrement">Send JV Agreement?</td>
+                  <td class="tableDatas" id="dataAddCost">Additional Cost</td>
+                  <td class="tableDatas" id="dataCloseCost">Are We Paying Close Cost?</td>
+                  <td class="tableDatas" id="dataCoeDate">COE Date</td>
+                  <td class="tableDatas" id="dataIpLength">IP Length</td>
+                  <td class="tableDatas" id="dataTitleAttorney">Title Company/Attorney Name</td>
+                  <td class="tableDatas" id="dataTitleOfficerName">Title Officer Name</td>
+                  <td class="tableDatas" id="dataTitleEmail">jacob.fullerton@keyglee.com</td>
+                  <td class="tableDatas" id="dataTitlePhone">Title Company Phone Number</td>
+                  <td class="tableDatas" id="dataTypeAccess">Type of Access</td>
+                  <td class="tableDatas" id="dataPostPossession">Post Possession?</td>
+                  <td class="tableDatas" id="dataLeaseDetails">Lease Details</td>
+                  <td class="tableDatas" id="dataTenantRent">Current Rent, If Tenant Occupied</td>
+                  <td class="tableDatas" id="dataTenantTerm">Least Term, If Tenant Occupied</td>
+                  <td class="tableDatas" id="dataAddNotes">Additional Notes of Supplier/Agent</td>
+                  <td class="tableDatas" id="dataBeds">Bedrooms</td>
+                  <td class="tableDatas" id="dataBaths">Baths</td>
+                  <td class="tableDatas" id="dataPark">Parking</td>
+                  <td class="tableDatas" id="dataPool">Pool</td>
+                  <td class="tableDatas" id="dataLivingArea">Living Area (Sqft)</td>
+                  <td class="tableDatas" id="dataLotSize">Lot Size (Sqft or Acres)</td>
+                  <td class="tableDatas" id="dataYearBuilt">Year Built</td>
+                  <td class="tableDatas" id="dataSupplier">Link to Pictures</td>
+                </tr> -->
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+<footer>
+  <div class='bottomLogo'>
+    <img class="logo" src="/Logos/Keyglee Dispo Logo.png" alt="KeyGlee Logo" width="100" height="93">
+  </div>
+  <div class="footer">
+      <a href="/home.html" class="foot">
+      <h3 class="footerList">Home</h3>
+      </a>
+      <a href="https://theglobalsystemsolutions.itclientportal.com/ClientPortal/LandingPage/LandingPage.aspx?fromLogin=1" target="blank" class="foot">
+          <h3 class="footerList">IT Support</h3>
+      </a>
+      <a href="https://podio.com/home" class="foot">
+          <h3 class="footerList">Podio</h3>
+      </a>
+
+      <a href="https://app.close.com/login/" class="foot">
+          <h3 class="footerList">Close</h3>
+      </a>
+      <a href="https://gms.prismhr.com/gms.corp/dbweb.asp?dbcgm=1" class="foot">
+          <h3 class="footerList">GMS Portal</h3>
+      </a>
+      <a href="#" class="foot">
+        <h3 class="footerList">Keyglee Newsletter</h3>
+    </a>
+  </div>
+  <ul class="socialList">
+      <li><a href="https://www.instagram.com/keygleedispo/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a></div></li>
+      <li><a href="https://www.facebook.com/keygleedispo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+      <li><a href="https://twitter.com/keygleedispo"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/aem-real-estate-group/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+  </ul>
+</footer>
+<!-------------------------------------------------------------------Scripts------------------------------------------------>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="acq-table.js"></script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>AEM Real Estate Map</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="map2.css" rel="stylesheet">
+  
+    <!-- <script>
+      const dispoFormKeys = Object.values(localStorage);
+
+      const splicedForms = dispoFormKeys.splice(0); 
+
+      splicedForms.map(dispoAnswers => {const arr = JSON.parse("[" + dispoAnswers + "]"); 
+const formID = arr[0].shift(); 
+var finalArray = [arr];
+
+
+
+finalArray.forEach(function(elem) {
+
+
+const descripitionTitles = ["Beds: ", "Baths: ", "Garage: ", "Pool: ", "Sq Foot: ", "Lot Size: ", "Year Built: ", "Wholesale: ", "After Repair Value: ", photoLink, "Additional Notes: "];
+
+
+// const panelDetailsEl = document.getElementById('locator-details-tmpl');
+
+
+
+
+
+
+console.log(elem[0]);
+
+const testObject = {
+  "beds" : ["12"]
+}
+
+
+let testingDetails = 
+  [elem[0][4], 
+"BathsVariable",
+"GarageVariable",
+elem[0][2],
+"SqftVariable",
+"LotSizeVariable",
+"YearVariable",
+elem[0][10],
+  "ARVVariable",
+ photoLink,
+  elem[0][3]]
+
+for (let testing of testingDetails) {
+
+
+var divParent = document.createElement('div');
+var divDescription = document.createElement('div');
+var pTitle = document.createElement('p');
+pTitle.classList.add("listTitle");
+divParent.classList.add('locations-panel-details');
+divDescription.classList.add("description");
+var spanDetails = document.createElement('span');
+spanDetails.classList.add("listItems");
+
+var photoLink = document.createElement('a'); //Creating a link for Property Photos
+photoLink.setAttribute("href", "link variable goes here") //Adding a link variable to the anchor for photos
+photoLink.style="font-weight: 600; font-size: 17px; font-style: italic;" //Styling the link text
+
+console.log(testing)
+spanDetails.innerText = testing
+
+pTitle.appendChild(spanDetails);
+divDescription.appendChild(pTitle);
+divParent.appendChild(divDescription);
+console.log(testingDetails);
+}
+
+// const html = htmlDetails(testingDetails);
+
+// document.querySelector(".listItems").append(html);
+
+const testing2Details = [
+`${'<p class="listTitle"><span class="listItems" id="beds">"Beds: "</span></p>'}` + "bedsVariable",
+"Baths: " + "bathsVariable",
+"Garage: " + "garageVariable",
+"Pool: " + "poolVariable",
+"Sq Foot: " + "sqftVariable",
+"Lot Size: " + "lotSizeVariable",
+"Year Built: " + "lotSizeVariable",
+"Wholesale: " + elem[0][10],
+"After Repair Value: " + "arvVariable",
+"Pictures: " + photoLink,
+"Additional Notes: " + "notesVariable"
+]
+
+// const html = htmlDetails(testingDetails);
+
+
+
+
+
+
+// console.log(testing2Details)
+
+// const renderDetails = function(context) {
+  
+//   panelDetailsEl.innerHTML = htmlDetails(context);
+//   panelDetailsEl.querySelector('.listItems')
+  
+//   renderDetails(context);
+// };
+
+// document.getElementById("wholesalePrice").innerText = testing2Details[7]["Wholesale: "]
+
+// console.log(listDetails[7]["Wholesale: "])
+
+
+});
+});
+
+
+    </script> -->
+    <script>
+      const CONFIGURATION = {
+      "capabilities":{"input":true,"autocomplete":true,"details":true},
+      "locations": 
+      
+          [{"title":"8035 4th Ave S",
+          "address1":"8035 4th Ave S",
+          "address2":"Birmingham, AL 35206, USA",
+          "coords":{"lat":33.56429810555584,"lng":-86.71905553558197},
+          "placeId":"ChIJW7Z13yIQiYgRkf3vxv_o5wY"},
+
+          {"title":"1672 Amapola Dr",
+          "address1":"1672 Amapola Dr",
+          "address2":"Las Vegas, NV 89142, USA",
+          "coords":{"lat":36.153444752906395,"lng":-115.04958143558197},
+          "placeId":"ChIJ0RDteW7byIAR0gINHqVolS4"},
+
+          {"title":"120 21st Ave NE",
+          "address1":"120 21st Ave NE",
+          "address2":"Center Point, AL 35215, USA",
+          "coords":{"lat":33.640490535260966,"lng":-86.6812838067459},
+          "placeId":"ChIJH0CMAMAOiYgRwExX8WgLYIc"},
+
+          {"title":"4015 Prospect Ave",
+          "address1":"4015 Prospect Ave",
+          "address2":"Kansas City, MO 64130, USA",
+          "coords":{"lat":39.05293505854627,"lng":-94.55344216441803},
+          "placeId":"ChIJg3-b4FrlwIcRJie9pjkP8BM"}],
+
+        "mapOptions":{},
+        "mapsApiKey":"AIzaSyDZO4-fjim18Q-HauZlwCvMCpZ_HUPjWA8"};
+
+      function initMap() {
+        // Map Options
+        var options = {}
+
+        new LocatorPlus(CONFIGURATION);
+      }
+    </script>
+    <!-- <script id="locator-result-items-tmpl" type="text/x-handlebars-template">
+      {{#each locations}}
+        <li class="location-result" data-location-index="{{index}}">
+          <button class="select-location">
+            <h2 class="name">{{title}}</h2>
+          </button>
+          <div class="address">{{address1}}<br>{{address2}}</div>
+          <button class="details-button">
+            View details
+          </button>
+        </li>
+      {{/each}}
+    </script>
+    <script id="locator-details-tmpl" type="text/x-handlebars-template">
+      <button class="back-button">
+        <img class="icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/arrow_back/v11/24px.svg" alt=""/>
+        Back
+      </button>
+      <header>
+        <div class="banner">
+      <img src="Logos/Keyglee Dispo Logo.png" style="height: 120px; width: 120px; margin-left: 15px; margin-bottom: 10px;">
+        </div>
+        <h2>{{location.title}}</h2>
+      </header>
+      <div class="address">
+        {{location.address1}}<br>
+        {{location.address2}}
+      </div>
+      <hr/>
+      <div class="description">
+        <p class="listTitle">Beds: <span class="listItems" id="beds"></span></p>
+        <p class="listTitle">Baths: <span class="listItems" id="baths"></span></p>
+        <p class="listTitle">Garage: <span class="listItems" id="garage"></span></p>
+        <p class="listTitle">Pool: <span class="listItems" id="pool"></span></p>
+        <p class="listTitle">Sq Foot: <span class="listItems" id="sqFoot">4,031sf</span></p>
+        <p class="listTitle">Lot Size: <span class="listItems" id="lotSize">0.49acre</span></p>
+        <p class="listTitle">Year Built: <span class="listItems" id="yearBuilt">1999</span></p>
+        <p class="listTitle">Wholesale: <span class="listItems" id="wholesalePrice">$360,000</span></p>
+        <p class="listTitle">After Repair Value: <span class="listItems" id="arvPrice">$450,000</span></p>
+        <a href="#" class="listTitle" style="font-weight: 600; font-size: 17px; font-style: italic;" id="propPhotos">Property Photos</a>
+        <p class="listTitle">Additional Notes: <span p class="listItems" id="addNotes">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe debitis sit porro, soluta aspernatur odio, delectus aliquam, placeat repellat facere deserunt voluptas explicabo possimus reprehenderit! Atque sit perspiciatis beatae accusamus?</span></p>
+      </div>
+    </script> -->
+  </head>
+
+
+  <body>
+
+    <!-- Top Nav -->
+    <nav role="navigation" >
+      <div id="menuToggle">
+        <input class="checkBox" type="checkbox" />
+    
+        <span></span>
+        <span></span>
+        <span></span>
+    <ul class="navigation" id="menu">
+      <li class="navItem"><a href="/Sendgrid Stats/stats.html">Sendgrid Stats</a></li>
+      <li class="navItem"><a href='/Contracts/acq-table.html'>Acq Properties</a></li>
+      <li class="navItem"><a href='/Contracts/dispoFormData.html'>Dispo Properties</a></li>
+      <li class="navItem"><a href="/map2.html">Map</a></li>
+      <div class="dropdown">
+          <li class="dropbtn"><a>Forms</a></li>
+          <div class="dropdown-content">
+              <a id="atlanta" href="/Contracts/acq-forms.html">Acquisition</a>
+              <a id="birmingham" href="/Contracts/dispoForm.html">Disposition</a>
+          </div>
+      </div>
+    
+      <li style="text-align: center;width: 20%;margin-right: 0%;" class="topTitle"><h1><i style="color: white; font-size: 40px; letter-spacing: 1px;">Trinity</i></h1></li>
+      <!--directs to the login html page, no escape from login yet-->
+      <li style="width: 40%;margin-right: 0%;" class="navItem" id="navLogin"><a href="/Login/login.html" class="login">Log In</a></li>
+      <br>
+      <li style="text-align: center;border-bottom: 2px solid black;border-radius: 5px;" class="topTitle2"><h1><i style="color: black; text-align: center; display:contents; letter-spacing: 2px;">Trinity</i></h1></li>
+      </ul>
+    </div>
+    </nav>
+
+
+    <div id="map-container">
+      <div id="locations-panel">
+        <div id="locations-panel-list">
+          <header>
+            <h1 class="search-title">
+              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/place/v15/24px.svg"/>
+              AEM Real Estate Map
+            </h1>
+            <div class="search-input">
+              <input id="location-search-input" placeholder="Enter your address or zip code">
+              <div id="search-overlay-search" class="search-input-overlay search">
+                <button id="location-search-button">
+                  <img class="icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/search/v11/24px.svg" alt="Search"/>
+                </button>
+              </div>
+            </div>
+            <br>
+            <br>
+            <b>Filter Through List: 
+              <input id="filterTable" type="text" placeholder="Search properties" style="background-color: aliceblue; display: inline;padding: 2px 35% 2px 7px;">
+            </b>
+          </header>
+
+          <!------------------------------------------------------------------->
+          <div class="section-name" id="location-results-section-name">
+            AEM Properties
+          </div>
+          <div class="results">
+            <ul id="location-results-list"></ul>
+          </div>
+
+          
+          <!------------------------Atlanta List---------------------------->
+          <!-- <div class="section-name" id="titleAtlanta">
+            Atlanta
+          </div> -->
+          <!-- <div class="results">
+            <ul id="atlanta-results-list">
+              <li class="location-result" data-location-index="{{index}}">
+                <button class="select-location">
+                  <h2 class="name">Property 1</h2>
+                  <br>
+                </button>
+                <div class="address"><span class="addressOne">Address1</span><br><span class="addressTwo">Address2</span></div>
+                <br>
+                <button class="details-button">
+                  View details
+                </button>
+              </li>
+            </ul>
+          </div> -->
+          <!-- <div id="locations-panel-details" style="display: none;"> <button class="back-button">
+            <img class="icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/arrow_back/v11/24px.svg" alt=""/>
+            Back
+          </button>
+          <header>
+            <div class="banner">
+          <img src="Logos/Keyglee Dispo Logo.png" style="height: 120px; width: 120px; margin-left: 15px; margin-bottom: 10px;">
+            </div>
+            <h2></h2>
+          </header>
+          <div class="address">
+           3377 S. Price Rd <br>
+            
+          </div>
+          <hr/>
+          <div class="description">
+            <p class="listTitle">Beds: <span class="listItems" id="beds"></span></p>
+            <p class="listTitle">Baths: <span class="listItems" id="baths"></span></p>
+            <p class="listTitle">Garage: <span class="listItems" id="garage"></span></p>
+            <p class="listTitle">Pool: <span class="listItems" id="pool"></span></p>
+            <p class="listTitle">Sq Foot: <span class="listItems" id="sqFoot"></span></p>
+            <p class="listTitle">Lot Size: <span class="listItems" id="lotSize"></span></p>
+            <p class="listTitle">Year Built: <span class="listItems" id="yearBuilt"></span></p>
+            <p class="listTitle">Wholesale: <span class="listItems" id="wholesalePrice"></span></p>
+            <p class="listTitle">After Repair Value: <span class="listItems" id="arvPrice"></span></p>
+            <a href="#" class="listTitle" style="font-weight: 600; font-size: 17px; font-style: italic;" id="propPhotos"></a>
+            <p class="listTitle">Additional Notes: <span p class="listItems" id="addNotes"></span></p>
+          </div>
+        </div> -->
+          <!-- ----------------------Birmingham List-------------------------- -->
+          <!-- <div class="section-name" id="titleBirmingham">
+            Birmingham
+          </div>
+          <div class="results">
+            <ul id="birmingHam-results-list"></ul>
+          </div> -->
+            <!------------------------Charlotte List---------------------------->
+            <!-- <div class="section-name" id="titleCharlotte">
+              Charlotte
+            </div>
+            <div class="results">
+              <ul id="charlotte-results-list"></ul>
+            </div> -->
+          <!------------------------Columbus List---------------------------->
+          <!-- <div class="section-name" id="titleColumbus">
+            Columbus
+          </div>
+          <div class="results">
+            <ul id="columbus-results-list"></ul>
+          </div> -->
+          <!------------------------Dallas List---------------------------->
+          <!-- <div class="section-name" id="titleDallas">
+            Dallas
+          </div>
+          <div class="results">
+            <ul id="dallas-results-list"></ul>
+          </div> -->
+          <!------------------------Houston List---------------------------->
+          <!-- <div class="section-name" id="titleHouston">
+            Houston
+          </div>
+          <div class="results">
+            <ul id="houston-results-list"></ul>
+          </div> -->
+          <!------------------------Indianapolis List---------------------------->
+          <!-- <div class="section-name" id="titleIndianapolis">
+            Indianapolis
+          </div>
+          <div class="results">
+            <ul id="indianapolis-results-list"></ul>
+          </div> -->
+          <!------------------------Kansas City List---------------------------->
+          <!-- <div class="section-name" id="titleKansasCity">
+            Kansas City
+          </div>
+          <div class="results">
+            <ul id="kansascity-results-list"></ul>
+          </div> -->
+          <!------------------------Las Vegas List---------------------------->
+          <!-- <div class="section-name" id="titleLasVegas">
+            Las Vegas
+          </div>
+          <div class="results">
+            <ul id="lasvegas-results-list"></ul>
+          </div> -->
+          <!------------------------Memphis List---------------------------->
+          <!-- <div class="section-name" id="titleMemphis">
+            Memphis
+          </div>
+          <div class="results">
+            <ul id="memphis-results-list"></ul>
+          </div> -->
+          <!------------------------Northern AZ List---------------------------->
+          <!-- <div class="section-name" id="titleNorthernAz">
+            Northern AZ
+          </div>
+          <div class="results">
+            <ul id="northernaz-results-list"></ul>
+          </div> -->
+          <!------------------------San Antonio List---------------------------->
+          <!-- <div class="section-name" id="titleSanAntonio">
+            San Antonio
+          </div>
+          <div class="results">
+            <ul id="sanantonio-results-list"></ul>
+          </div> -->
+          <!------------------------St. Louis List---------------------------->
+          <!-- <div class="section-name" id="titleStLouis">
+            St. Louis
+          </div>
+          <div class="results">
+            <ul id="stlouis-results-list"></ul>
+          </div> -->
+          <!------------------------Tucson List---------------------------->
+          <!-- <div class="section-name" id="titleTucson">
+            Tucson
+          </div>
+          <div class="results">
+            <ul id="tucson-results-list"></ul>
+          </div> -->
+        </div>
+        <div id="locations-panel-details"></div>
+      </div>
+      <div id="map"></div>
+    </div>
+
+    <footer>
+      <div class='bottomLogo'>
+        <img class="logo" src="/Logos/Keyglee Dispo Logo.png" alt="KeyGlee Logo" width="100" height="93">
+      </div>
+        <div class="footer">
+            <a href="/home.html" class="foot">
+            <h3 class="footerList">Home</h3>
+            </a>
+            <a href="https://theglobalsystemsolutions.itclientportal.com/ClientPortal/LandingPage/LandingPage.aspx?fromLogin=1" target="blank" class="foot">
+                <h3 class="footerList">IT Support</h3>
+            </a>
+            <a href="https://podio.com/home" class="foot">
+                <h3 class="footerList">Podio</h3>
+            </a>
+  
+            <a href="https://app.close.com/login/" class="foot">
+                <h3 class="footerList">Close</h3>
+            </a>
+            <a href="https://gms.prismhr.com/gms.corp/dbweb.asp?dbcgm=1" class="foot">
+              <h3 class="footerList">GMS Portal</h3>
+          </a>
+          <a href="#" class="foot">
+            <h3 class="footerList">Keyglee Newsletter</h3>
+        </a>
+        </div>
+        <ul class="socialList">
+            <li><a href="https://www.instagram.com/keygleedispo/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a></div></li>
+            <li><a href="https://www.facebook.com/keygleedispo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="https://twitter.com/keygleedispo"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/aem-real-estate-group/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        </ul>
+    </footer>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="map2.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZO4-fjim18Q-HauZlwCvMCpZ_HUPjWA8&callback=initMap&libraries=places,geometry&region=US&channel=GMPSB_locatorplus_v3_cABE" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+  </body>
+</html>

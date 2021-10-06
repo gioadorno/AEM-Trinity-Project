@@ -1,0 +1,40 @@
+{
+  "name": "sendgrid-html",
+  "version": "1.0.0",
+  "description": "KeygleeDispo various automations",
+  "main": "home.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --output-public-path=/build/  --mode development --progress --open --hot",
+    "build": "webpack --mode production --progress"
+  },
+  "author": "Gio, Saki",
+  "license": "ISC",
+  "dependencies": {},
+  "keywords": [
+    "KeygleeDispo"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@sendgrid/client": "^7.4.6",
+    "@sendgrid/helpers": "^7.4.6",
+    "axios": "^0.21.4",
+    "babel-loader": "^8.2.2",
+    "file-saver": "^2.0.5",
+    "handlebars": "^4.7.7",
+    "moment": "^2.29.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSSRepo/KeygleAutomations.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GSSRepo/KeygleAutomations/issues"
+  },
+  "homepage": "https://github.com/GSSRepo/KeygleAutomations#readme"
+}

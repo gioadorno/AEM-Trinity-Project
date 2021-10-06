@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SendGrid Stats</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/Sendgrid Stats/stats.css">
+        <!--the link to get the down caret for the dropdown-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    </head>
+    <body style="background-color: rgb(238, 238, 238);">
+           <!-- Top Nav -->
+           <nav role="navigation" >
+            <div id="menuToggle">
+              <input type="checkbox" />
+          
+              <span></span>
+              <span></span>
+              <span></span>
+          <ul class="navigation" id="menu">
+            <!--the dropdown menu with all the available markets-->
+            <li class="navItem"><a href="/Sendgrid Stats/stats.html">Sendgrid Stats</a></li>
+            <li class="navItem"><a>Close</a></li>
+            <li class="navItem"><a>Podio</a></li>
+            <li class="navItem"><a href="/map2.html">Map</a></li>
+            <div class="dropdown">
+                <li class="dropbtn"><a>Forms</i></a></li>
+                <div class="dropdown-content">
+                    <a id="atlanta" href="/Contracts/acq-contracts.html">Acquisition</a>
+                    <a id="birmingham" href="/Contracts/dispoForm.html">Disposition</a>
+                </div>
+            </div>
+          
+            <li style="width: 100%; text-align: right; margin-right: 14%;" class="topTitle"><h1><i style="color: white; font-size: 40px; letter-spacing: 1px;">Trinity</i></h1></li>
+            <!--directs to the login html page, no escape from login yet-->
+            <li style="width: 100%; text-align: right; margin-right: 3%;" class="navItem" id="navLogin"><a href="/Login/login.html" class="login">Log In</a></li>
+            <br>
+            <li style="text-align: center;border-bottom: 2px solid black;border-radius: 5px;" class="topTitle2"><h1><i style="color: black; text-align: center; display:contents; letter-spacing: 2px;">Trinity</i></h1></li>
+            </ul>
+          </div>
+          </nav>
+
+
+        <!--id for the market is "market" for easier javascript implementation-->
+        <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center;">
+          <h3 style="border-bottom: 1pt solid black; text-align: center;"><i id="market">Sendgrid Category Statistics</i></h3>
+          <b style="margin-left: 20px; font-size: 20px;">Select Date Range: 
+            <input id="filterTable" type="text" name="daterange" 
+                   placeholder="Select Date" style="background-color: aliceblue; display: inline; margin-left: 10px; padding: 2px 7px 2px 7px;">
+          </b>
+          <b style="margin-left: 20px;">Search Category: 
+            <input id="filterCategory" type="text" 
+                   placeholder="Search here" style="background-color: aliceblue; display: inline; margin-left: 10px; padding: 2px 7px 2px 7px;">
+          </b>
+        </div>
+        
+        <!-- <div style="border-bottom: 1pt solid black;">
+            <div style="display: flex; justify-content: center">
+                <h3 class="date"><i id="displayDate">Date: 08-30-2021</i></h3>
+            </div> -->
+            <!--all variables (percentages and numbers) are given an id-->
+            <table style="width: 100%" id="statsTable">
+                <!-- <tr class="statBox"> -->
+                    <!-- <th class="tableHead">
+                        <i class="tableTitles">Delivered</i><br>
+                        <a class="percentage" id="deliveredP">92.11%</a>
+                        <a class="actualNum" id="deliveredN">379,602</a>
+                    </th>
+                    <th class="tableHead">
+                        <i class="tableTitles">Unique Clicks</i><br>
+                        <a  class="percentage" id="uniqueClicksP" >1.44%</a>
+                        <a class="actualNum" id="uniqueClicksN">5,928</a>
+                    </th>
+                    <th class="tableHead">
+                        <i class="tableTitles">Opened</i><br>
+                        <a class="percentage" id="openedP">32.06%</a>
+                        <a class="actualNum" id="openedN">132,136</a>
+                    </th>
+                    <th class="tableHead">
+                        <i class="tableTitles">Unique Opens</i><br>
+                        <a class="percentage" id="uniqueOpensP">17.58%</a>
+                        <a class="actualNum" id="uniqueOpensN">72,434</a>
+                    </th> -->
+                <!-- </tr> -->
+            </table>
+            <!-- <div id="popupWin" class="popup">
+                <div class="popupContent" id="popupView">
+                    <div class="popupTop">
+                        <a style="color: black; font-size: 20px;">Emails</a>
+                        <span id="closeX" class="close">X</span>
+                    </div>
+                    <br>
+                    <div style="text-align: center; overflow: auto;">
+                        <p id="emailList">email@email.com</p>
+                    </div>
+                </div>
+            </div> -->
+            <br>
+        </div>
+        <footer>
+            <img class="logo" src="/Logos/Keyglee Dispo Logo.png" alt="KeyGlee Logo" width="100" height="93">
+            <div class="footer">
+                <a href="stats.html" class="foot">
+                <h3 class="footerList">Home</h3>
+                </a>
+                <a href="https://theglobalsystemsolutions.itclientportal.com/ClientPortal/LandingPage/LandingPage.aspx?fromLogin=1" target="blank" class="foot">
+                    <h3 class="footerList">IT Support</h3>
+                </a>
+                <a href="https://podio.com/home" class="foot">
+                    <h3 class="footerList">Podio</h3>
+                </a>
+          
+                <a href="https://app.close.com/login/" class="foot">
+                    <h3 class="footerList">Close</h3>
+                </a>
+                <a href="https://gms.prismhr.com/gms/auth/#/login?lang=en" class="foot">
+                    <h3 class="footerList">GMS Portal</h3>
+                </a>
+                <a href="#" class="foot">
+                  <h3 class="footerList">Keyglee Newsletter</h3>
+              </a>
+            </div>
+            <ul class="socialList">
+                <li><a href="https://www.instagram.com/keygleedispo/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a></div></li>
+                <li><a href="https://www.facebook.com/keygleedispo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="https://twitter.com/keygleedispo"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/aem-real-estate-group/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            </ul>
+          </footer>
+        <script type="text/javascript" src="/Sendgrid Stats/stats.js"></script>
+    </body>
+</html>

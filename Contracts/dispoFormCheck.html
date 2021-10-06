@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+    <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Dispo Form Check</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dispoFormCheck.css">
+
+</head>
+
+<body>
+    <header>
+         <!------------------------------------Navigation Bar Start--------------------------------------------------->
+
+<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<nav role="navigation" >
+    <div id="menuToggle">
+      <input class="checkBox" type="checkbox" />
+  
+      <span></span>
+      <span></span>
+      <span></span>
+  <ul class="navigation" id="menu">
+    <li class="navItem"><a href="/Sendgrid Stats/stats.html">Sendgrid Stats</a></li>
+    <li class="navItem"><a>Close</a></li>
+    <li class="navItem"><a>Podio</a></li>
+    <li class="navItem"><a href="/map2.html">Map</a></li>
+    <div class="dropdown">
+        <li class="dropbtn"><a>Forms</i></a></li>
+        <div class="dropdown-content">
+            <a id="atlanta" href="#">Acquisition</a>
+            <a id="birmingham" href="#">Disposition</a>
+        </div>
+    </div>
+  
+    <li style="text-align: right;width: 20%;margin-right: 0%;" class="topTitle"><h1><i style="color: white; font-size: 40px; letter-spacing: 1px;">Trinity</i></h1></li>
+    <!--directs to the login html page, no escape from login yet-->
+    <li style="width: 40%;text-align: right;margin-right: 0%;" class="navItem" id="navLogin"><a href="/Login/login.html" class="login">Log In</a></li>
+    <br>
+    <li style="text-align: center;border-bottom: 2px solid black;border-radius: 5px;" class="topTitle2"><h1><i style="color: black; text-align: center; display:contents; letter-spacing: 2px;">Trinity</i></h1></li>
+    </ul>
+  </div>
+  </nav>
+
+
+
+         <!------------------------------------Navigation Bar End----------------------------------------------------->
+    </header>
+
+
+        <!-------------------------------------------------------------Statistics--------------------------------------------------------------------------------------->
+
+        <!------------------Campaign Begin------------------------->
+        <div style="display: flex; justify-content: space-evenly; align-items: baseline;">
+        <h2 style="text-align: center; font-size: 35px; font-style: italic; font-family:monospace;">Dispo Form</h2>
+        
+        <div class="dropdown">
+            <button onclick="filter()" class="dropbtn" style="font-size: 24px; color: black; font-weight: 600;">Forms to Complete &#10147;</button>
+            <div id="myDropdown" class="dropdown-content">
+            </div>
+          </div>
+        </div>
+        <!-- <b style="margin-left: 20px;">Search Form by Address: 
+            <input id="filterTable" type="text" 
+                   placeholder="Search here" style="background-color: aliceblue; display: inline; margin-left: 10px; padding: 2px 7px 2px 7px;">
+          </b> -->
+
+<form id="dispoForm" action="javascript:void(0);">
+    <!--Property Address-->
+    <div class="flex-container">
+        <h3>Property Address:</h3>
+        <label class="centerLabel" id="checkAddressLabel">Full Address: Street, City, State, Zip</label>
+        <forms><input type="text" placeholder="Enter Property Address" class="flex-item" id="propertyAddress" disabled="disabled"></forms>
+        <div id="addressRejectionBox">
+            <textarea id="addressRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="addressAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="addressReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Buyer-->
+    <div class="flex-container">
+        <h3>Is the Buyer a:</h3>
+        <label class="centerLabel" id="buyerLabel">Select an option</label>
+        <forms class="offerButtons">
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="Buyer" id="wholesaler" disabled="disabled">Wholesaler
+            </label>
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="Buyer" id="agent" disabled="disabled">Agent
+            </label>
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="Buyer" id="investor" disabled="disabled">Investor
+                </label>
+        </forms>
+        <div id="buyerRejectionBox">
+            <textarea id="buyerRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="buyerAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="buyerReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Double Escrow-->
+    <div class="flex-container">
+        <h3>Double Escrow?:</h3>
+        <label class="centerLabel" id="doubleEscrowLabel">Are we double closing?</label>
+        <forms class="offerButtons">
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px;" name="escrow" id="escrowYes" disabled="disabled">Yes
+            </label>
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="escrow" id="escrowNo" disabled="disabled">No
+            <label>
+        </forms>
+        <div id="doubleEscrowRejectionBox">
+            <textarea id="doubleEscrowRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="doubleEscrowAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="doubleEscrowReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Title Company-->
+    <div class="flex-container">
+        <h3>Title Company/Attorney:</h3>
+        <label class="leftLabel" id="titleAttorneyLabel">Type a description</label>
+        <forms><input type="text" class="flex-item" id="titleComp" disabled="disabled"></forms>
+        <div id="titleAttorneyRejectionBox">
+            <textarea id="titleAttorneyRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="titleAttorneyAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="titleAttorneyReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Title Officer's Name-->
+    <div class="flex-container">
+        <h3>Title Officer's Name:</h3>
+        <label class="leftLabel" id="titleOfficerLabel">Type a description</label>
+        <forms><input type="text" class="flex-item" id="titleOfficer" disabled="disabled"></forms>
+        <div id="titleOfficerRejectionBox">
+            <textarea id="titleOfficerRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="titleOfficerAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="titleOfficerReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Title Company's Email-->
+    <div id="emailBox" class="flex-container">
+        <h3>Title Company Email:</h3>
+        <label class="leftLabel" id="titleEmailLabel">Type a description</label>
+        <forms><input type="text" placeholder="example@example.com" class="flex-item" id="titleEmail" disabled="disabled"></forms>
+        <div id="titleEmailRejectionBox">
+            <textarea id="titleEmailRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="titleEmailAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="titleEmailReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Title Company's Phone Number-->
+    <div class="flex-container">
+        <h3>Title Company's Phone Number:</h3>
+        <label class="leftLabel" id="titlePhoneLabel">Type a description</label>
+        <forms style="margin-bottom: 0%; margin-top: 1%">
+            <forms><input type="text" class="flex-item" placeholder="(123)-456-7890" id="compNum" disabled="disabled"></forms>
+        </forms>
+        <div id="titlePhoneRejectionBox">
+            <textarea id="titlePhoneRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="titlePhoneAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="titlePhoneReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Signer's Name-->
+    <div class="flex-container">
+        <h3>Signer's Name:</h3>
+        <label class="leftLabel" id="signerLabel">Name of the buyer signing the contract</label>
+        <forms><input type="text" class="flex-item" id="signerName" disabled="disabled"></forms>
+        <div id="signerRejectionBox">
+            <textarea id="signerRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="signerAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="signerReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Vesting-->
+    <div class="flex-container">
+        <h3>Vesting:</h3>
+        <label class="leftLabel" id="vestingLabel">Name of the person or company who is buying the property</label>
+        <forms><input type="text" class="flex-item" id="vester" disabled="disabled"></forms>
+        <div id="vestingRejectionBox">
+            <textarea id="vestingRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="vestingAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="vestingReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Contract Price-->
+    <div class="flex-container">
+        <h3>Contract Price:</h3>
+        <label class="centerLabel" id="conractPriceLabel">The price buyer is purchasing at</label>
+        <forms><input type="text" class="flex-item" id="contractPrice" value="$" disabled="disabled"></forms>
+        <div id="contractPriceRejectionBox">
+            <textarea id="contractRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="contractPriceAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="contractPriceReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--EMD-->
+    <div class="flex-container">
+        <h3>EMD:</h3>
+        <label class="centerLabel" id="emdLabel">Earnest Money Deposit Account</label>
+        <forms><input type="text" class="flex-item" id="EMD" value="$" disabled="disabled"></forms>
+        <div id="emdRejectionBox">
+            <textarea id="emdRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="emdAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="emdReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Closing costs-->
+    <div class="flex-container">
+        <h3>Are we paying closing costs?:</h3>
+        <label class="centerLabel" id="closingCostLabel">Choose an option</label>
+        <forms class="offerButtons">
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px;" name="closing" id="closeYes" disabled="disabled">Yes
+            </label>
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="closing" id="closeNo" disabled="disabled"> No
+            </label>
+        </forms>
+        <div id="closingCostRejectionBox">
+            <textarea id="closingCostRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="closingCostAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="closingCostReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Close of Escrow-->
+    <div class="flex-container">
+        <h3>Close of Escrow:</h3>
+        <label class="leftLabel" id="closeEscrowLabel">Type a description</label>
+        <forms><input type="date" id="closeEscrow" disabled="disabled"></forms>
+        <div id="closeEscrowRejectionBox">
+            <textarea id="closeEscrowRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="closeEscrowAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="closeEscrowReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Closing Sooner-->
+    <div class="flex-container">
+        <h3>Possibility of closing sooner?:</h3>
+        <label class="centerLabel" id="closeSoonLabel">Choose an option</label>
+        <forms class="offerButtons">
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px;" name="sooner" id="soonYes" disabled="disabled"> Yes
+            </label>
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="sooner" id="soonNo" disabled="disabled"> No
+            </label>
+        </forms>
+        <div id="closingSoonerRejectionBox">
+            <textarea id="closingSoonerRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="closingSoonerAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="closingSoonerReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Contract Executed date-->
+    <div class="flex-container">
+        <h3>Contract Executed Date:</h3>
+        <label class="centerLabel" id="contractDateLabel">Today's Date</label>
+        <forms><input type="date" id="exeEscrow" disabled="disabled"></forms>
+        <div id="contractLabelRejectionBox">
+            <textarea id="contractLabelRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="contractExecutedAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="contractExecutedReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Buyer's Number-->
+    <div class="flex-container">
+        <h3>Buyer's Phone Number:</h3>
+        <label class="leftLabel" id="buyerNumberLabel">Type a description</label>
+        <forms style="margin-bottom: 0%; margin-top: 1%">
+            <forms><input type="text" class="flex-item" placeholder="(123)-456-7890" maxlength="16" id="buyNum" disabled="disabled"></forms>
+        </forms>
+        <div id="buyersPhoneRejectionBox">
+            <textarea id="buyersPhoneRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="buyersPhoneAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="buyersPhoneReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Docusign Email-->
+    <div class="flex-container">
+        <h3>Docusign Email:</h3>
+        <label class="leftLabel" id="docusignLabel">Email for buyer/signer</label>
+        <forms><input type="text" id="docusign" placeholder="example@example.com" class="flex-item" disabled="disabled"></forms>
+        <div id="docusignEmailRejectionBox">
+            <textarea id="docusignEmailRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="docusignEmailAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="docusignEmailReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Your Name-->
+    <div class="flex-container">
+        <h3>Your Name:</h3>
+        <label class="leftLabel" id="nameLabel">Type a description</label>
+        <forms><input type="text" class="flex-item" id="userName" disabled="disabled"></forms>
+        <div id="nameRejectionBox">
+            <textarea id="nameRejectionReason" placeholder='Rejection Reason' style='display: none;'></textarea>
+        </div>
+        <div class="blueBox">
+            <div class="buttonbox">
+                <button class="checkbuttons" id="nameAccept">
+                    Accept
+                </button>
+                <button class="checkbuttons" id="nameReject">
+                    Reject
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Submit Form-->
+    <div class="submitBox">
+        <button id="submitDispoFormCheck" onClick="dispoForm()">Submit</button>
+        </div>
+
+</form>
+
+
+<footer>
+    <div class='bottomLogo'>
+        <img class="logo" src="/Logos/Keyglee Dispo Logo.png" alt="KeyGlee Logo" width="100" height="93">
+      </div>
+    <div class="footer">
+        <a href="/home.html" class="foot">
+            <h3 class="footerList">Home</h3>
+            </a>
+            <a href="https://theglobalsystemsolutions.itclientportal.com/ClientPortal/LandingPage/LandingPage.aspx?fromLogin=1" target="blank" class="foot">
+                <h3 class="footerList">IT Support</h3>
+            </a>
+            <a href="https://podio.com/home" class="foot">
+                <h3 class="footerList">Podio</h3>
+            </a>
+      
+            <a href="https://app.close.com/login/" class="foot">
+                <h3 class="footerList">Close</h3>
+            </a>
+            <a href="https://gms.prismhr.com/gms.corp/dbweb.asp?dbcgm=1" class="foot">
+              <h3 class="footerList">GMS Portal</h3>
+          </a>
+          <a href="#" class="foot">
+            <h3 class="footerList">Keyglee Newsletter</h3>
+        </a>
+    </div>
+    <ul class="socialList">
+        <li><a href="https://www.instagram.com/keygleedispo/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a></div></li>
+        <li><a href="https://www.facebook.com/keygleedispo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://twitter.com/keygleedispo"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/aem-real-estate-group/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+    </ul>
+</footer>
+
+<!-- Start Scripts -->
+<script type="module" src="dispoForm-js.js"></script>
+<script type="module" src="dispoFormCheck.js"></script>
+</body>
+</html>

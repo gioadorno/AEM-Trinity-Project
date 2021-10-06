@@ -1,0 +1,55 @@
+body {
+    background: linear-gradient(
+45deg
+, #669bff, #50c8c8);
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    margin-bottom: 10%;
+}
+
+input[type="text"], input[type="password"] {
+    border: 1px solid black;
+    padding-right: 55%;
+}
+
+input[type=button] {
+    padding: 3%;
+    border-radius: 10%;
+    border: 0.5pt solid black;
+}
+
+input[type=button]:hover {
+    cursor: pointer;
+}
+
+.loginBox {
+    display: flex;
+    border: 1px solid black;
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 5px 5px 5px rgb(206, 205, 205);
+}
+
+.userPass {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.button {
+    text-align: center;
+}
+
+.recover {
+    display: none;
+    color: rgba(8, 172, 8, 0.822);
+    margin-bottom: 5%;
+}

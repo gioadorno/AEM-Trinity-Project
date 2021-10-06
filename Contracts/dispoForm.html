@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>Dispo Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contracts">
+<link rel="stylesheet" href="dispoForm-css.css">
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZO4-fjim18Q-HauZlwCvMCpZ_HUPjWA8&libraries=places&v=weekly&geometry&region=US"
+></script>
+</head>
+
+<body>
+    <header>
+<!------------------------------------Navigation Bar Start--------------------------------------------------->
+
+<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<nav role="navigation" >
+    <div id="menuToggle">
+      <input class="checkBox" type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+        <ul class="navigation" id="menu">
+            <li class="navItem"><a href="/Sendgrid Stats/stats.html">Sendgrid Stats</a></li>
+            <li class="navItem"><a>Close</a></li>
+            <li class="navItem"><a>Podio</a></li>
+            <li class="navItem"><a href="/map2.html">Map</a></li>
+                <div class="dropdown">
+                    <li class="dropbtn"><a>Forms</i></a></li>
+                    <div class="dropdown-content">
+                        <a id="atlanta" href="#">Acquisition</a>
+                        <a id="birmingham" href="#">Disposition</a>
+                    </div>
+                </div>
+            <li style="text-align: center;width: 20%;margin-right: 0%;" class="topTitle"><h1><i style="color: white; font-size: 40px; letter-spacing: 1px;">Trinity</i></h1></li>
+            <!--directs to the login html page, no escape from login yet-->
+            <li style="width: 40%;text-align: right;margin-right: 0%;" class="navItem" id="navLogin"><a href="/Login/login.html" class="login">Log In</a></li>
+        <br>
+            <li style="text-align: center;border-bottom: 2px solid black;border-radius: 5px;" class="topTitle2"><h1><i style="color: black; text-align: center; display:contents; letter-spacing: 2px;">Trinity</i></h1></li>
+        </ul>
+  </div>
+</nav>
+<!------------------------------------Navigation Bar End----------------------------------------------------->
+    </header>
+
+
+        <!-------------------------------------------------------------Statistics--------------------------------------------------------------------------------------->
+
+        <!------------------Campaign Begin------------------------->
+<h2 style="text-align: center; font-size: 35px; font-style: italic; font-family:monospace;">Dispo Form</h2>
+
+<form id="dispoForm" method="POST">
+    <!--Property Address-->
+    <div class="flex-container">
+        <h3 id="addressLabel">Property Address:</h3>
+        <label class="centerLabel">Full Address: Street, City, State, Zip</label>
+        <forms><input type="text" placeholder="Enter Property Address" class="flex-item" id="propertyAddress"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Buyer-->
+    <div class="flex-container">
+        <h3 id="buyerLabel">Buyer is a:</h3>
+        <label class="centerLabel">Select an option</label>
+        <forms class="offerButtons">
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="Buyer" id="wholesaler" value="Wholesaler">Wholesaler
+            </label>
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="Buyer" id="agent" value="Agent">Agent
+            </label>
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="Buyer" id="investor" value="Investor">Investor
+                </label>
+        </forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Double Escrow-->
+    <div class="flex-container">
+        <h3 id="doubleEscrowLabel">Double Escrow?:</h3>
+        <label class="centerLabel">Are we double closing?</label>
+        <forms class="offerButtons">
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px;" name="escrow" id="escrowYes" value="Yes">Yes
+            </label>
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="escrow" id="escrowNo" value="No">No
+            <label>
+        </forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Title Company-->
+    <div class="flex-container">
+        <h3 id="titleAttorneyLabel">Title Company/Attorney:</h3>
+        <label class="leftLabel">Type a description</label>
+        <forms><input type="text" class="flex-item" id="titleComp"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Title Officer's Name-->
+    <div class="flex-container">
+        <h3 id="titleOfficerLabel">Title Officer's Name:</h3>
+        <label class="leftLabel">Type a description</label>
+        <forms><input type="text" class="flex-item" id="titleOfficer"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Title Company's Email-->
+    <div id="emailBox" class="flex-container">
+        <h3 id="titleEmailLabel">Title Company Email:</h3>
+        <label class="leftLabel">Type a description</label>
+        <div id="error"></div>
+        <forms><input type="text" placeholder="example@example.com" class="flex-item" id="titleEmail"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Title Company's Phone Number-->
+    <div class="flex-container">
+        <h3 id="titlePhoneLabel">Title Company's Phone Number:</h3>
+        <label class="leftLabel">Type a description</label>
+        <forms style="margin-bottom: 0%; margin-top: 1%">
+            <forms><input type="text" class="flex-item" placeholder="(123)-456-7890" id="compNum"></forms>
+        </forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Signer's Name-->
+    <div class="flex-container">
+        <h3 id="signerNameLabel">Signer's Name:</h3>
+        <label class="centerLabel">Name of the buyer signing the contract</label>
+        <forms><input type="text" class="flex-item" id="signerName"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Vesting-->
+    <div class="flex-container">
+        <h3 id="vestingLabel">Vesting:</h3>
+        <label class="centerLabel">Name of the person or company who is buying the property</label>
+        <forms><input type="text" class="flex-item" id="vester"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Contract Price-->
+    <div class="flex-container">
+        <h3 id="contractPriceLabel">Contract Price:</h3>
+        <label class="centerLabel">The price buyer is purchasing at</label>
+        <forms><input type="text" class="flex-item" id="contractPrice" value="$"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--EMD-->
+    <div class="flex-container">
+        <h3 id="emdLabel">EMD:</h3>
+        <label class="centerLabel">Earnest Money Deposit Account</label>
+        <forms><input type="text" class="flex-item" id="EMD" value="$"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Closing costs-->
+    <div class="flex-container">
+        <h3 id="closingCostLabel">Are we paying closing costs?:</h3>
+        <label class="centerLabel">Choose an option</label>
+        <forms class="offerButtons">
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px;" name="closing" id="closeYes" value="Yes">Yes
+            </label>
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="closing" id="closeNo" value="No"> No
+            </label>
+        </forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Close of Escrow-->
+    <div class="flex-container">
+        <h3 id="closeEscrowLabel">Close of Escrow:</h3>
+        <label class="leftLabel">Type a description</label>
+        <forms><input type="date" id="closeEscrow"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Closing Sooner-->
+    <div class="flex-container">
+        <h3 id="closeSoonerLabel">Possibility of closing sooner?:</h3>
+        <label class="centerLabel">Choose an option</label>
+        <forms class="offerButtons">
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px;" name="sooner" id="soonYes" value="Yes"> Yes
+            </label>
+            <label class="radioButton">
+                <input type="radio" style="margin: 10px" name="sooner" id="soonNo" value="No"> No
+            </label>
+        </forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Contract Executed date-->
+    <div class="flex-container">
+        <h3 id="contractDateLabel">Contract Executed Date:</h3>
+        <label class="centerLabel">Today's Date</label>
+        <forms><input type="date" id="exeEscrow"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Buyer's Number-->
+    <div class="flex-container">
+        <h3 id="buyerPhoneLabel">Buyer's Phone Number:</h3>
+        <label class="leftLabel">Type a description</label>
+        <forms style="margin-bottom: 0%; margin-top: 1%">
+            <forms><input type="text" class="flex-item" placeholder="(123)-456-7890" maxlength="14" id="buyNum"></forms>
+        </forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Docusign Email-->
+    <div class="flex-container">
+        <h3 id="docusignEmailLabel">Docusign Email:</h3>
+        <label class="leftLabel">Email for buyer/signer</label>
+        <div id="error"></div>
+        <forms><input type="text" id="docusign" placeholder="example@example.com" class="flex-item"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Your Name-->
+    <div class="flex-container">
+        <h3 id="nameLabel">Your Name:</h3>
+        <label class="leftLabel">Type a description</label>
+        <forms><input type="text" class="flex-item" id="userName"></forms>
+        <div class="blueBox"></div>
+    </div>
+
+    <!--Submit Form-->
+    <div class="submitBox">
+        <button type="button" id="submitDispoForm">Submit</button>
+    </div>
+</form>
+
+<footer>
+    <div class='bottomLogo'>
+        <img class="logo" src="/Logos/Keyglee Dispo Logo.png" alt="KeyGlee Logo" width="100" height="93">
+      </div>
+    <div class="footer">
+        <a href="/home.html" class="foot">
+            <h3 class="footerList">Home</h3>
+            </a>
+            <a href="https://theglobalsystemsolutions.itclientportal.com/ClientPortal/LandingPage/LandingPage.aspx?fromLogin=1" target="blank" class="foot">
+                <h3 class="footerList">IT Support</h3>
+            </a>
+            <a href="https://podio.com/home" class="foot">
+                <h3 class="footerList">Podio</h3>
+            </a>
+      
+            <a href="https://app.close.com/login/" class="foot">
+                <h3 class="footerList">Close</h3>
+            </a>
+            <a href="https://gms.prismhr.com/gms.corp/dbweb.asp?dbcgm=1" class="foot">
+              <h3 class="footerList">GMS Portal</h3>
+          </a>
+          <a href="#" class="foot">
+            <h3 class="footerList">Keyglee Newsletter</h3>
+        </a>
+    </div>
+    <ul class="socialList">
+        <li><a href="https://www.instagram.com/keygleedispo/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a></div></li>
+        <li><a href="https://www.facebook.com/keygleedispo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://twitter.com/keygleedispo"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/aem-real-estate-group/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+    </ul>
+</footer>
+
+<!-- Begin Scripts -->
+    <script type="module" src="dispoForm-js.js"></script>
+    </body>
+</html>

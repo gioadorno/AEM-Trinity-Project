@@ -1,0 +1,25 @@
+body {
+  background-color: lemonchiffon;
+}
+.navBar {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  background-color: gray;
+}
+.navBar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.navBar li {
+  display: inline;
+}
+.navBar li a {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+}
+.navBar li a.active {
+  background-color: #3786e1;
+}

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Dispo Data Table</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contracts">
+  <link rel="stylesheet" href="dispoFormData.css">
+<!--===============================================================================================-->	
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+
+  
+
+</head>
+
+<body class="bodyTable">
+<header>
+<!------------------------------------Navigation Bar Start--------------------------------------------------->
+
+<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav role="navigation" >
+  <div id="menuToggle">
+    <input class="checkBox" type="checkbox" />
+    <span></span>
+    <span></span>
+    <span></span>
+    <ul class="navigation" id="menu">
+        <li class="navItem"><a href="/Sendgrid Stats/stats.html">Sendgrid Stats</a></li>
+        <li class="navItem"><a href='acq-table.html'>Acq Properties</a></li>
+        <li class="navItem"><a href='dispoFormData.html'>Dispo Properties</a></li>
+        <li class="navItem"><a href="/map2.html">Map</a></li>
+        <div class="dropdown">
+            <li class="dropbtn"><a>Forms</a></li>
+            <div class="dropdown-content">
+                <a id="atlanta" href="acq-forms.html">Acquisition</a>
+                <a id="birmingham" href="dispoForm.html">Disposition</a>
+            </div>
+        </div>
+
+        <li style="text-align: center;width: 20%;margin-right: 0%;" class="topTitle"><h1><i style="color: white; font-size: 40px; letter-spacing: 1px;">Trinity</i></h1></li>
+        <!--directs to the login html page, no escape from login yet-->
+        <li style="width: 40%;margin-right: 0%;" class="navItem" id="navLogin"><a href="/Login/login.html" class="login">Log In</a></li>
+    <br>
+        <li style="text-align: center;border-bottom: 2px solid black;border-radius: 5px;" class="topTitle2"><h1><i style="color: black; text-align: center; display:contents; letter-spacing: 2px;">Trinity</i></h1></li>
+    </ul>
+</div>
+</nav>
+
+<!------------------------------------Navigation Bar End----------------------------------------------------->
+</header>
+
+
+<!-------------------------------------------------------------Statistics--------------------------------------------------------------------------------------->
+
+<!------------------Campaign Begin------------------------->
+<h2 style="text-align: center; font-style: italic; font-family: initial; font-size: 37px; margin: 5px;">Dispo Properties</h2>
+
+
+<b style="margin-left: 20px;">Search Properties: 
+  <input id="filterTable" type="text" placeholder="Search here" style="background-color: aliceblue; display: inline; margin-left: 10px; padding: 2px 7px 2px 7px;">
+</b>
+<div class="limiter">
+  <div class="container-table100">
+    <div class="wrap-table100">
+        <div class="table100">
+            <table class="table" id="myTable">
+              <thead>
+                 <tr class="table100-head">
+                    <th class="column1">Property Address 
+                      <select id="select1">
+                      <option id="option1"></option>
+                    </select>
+                    </th>
+                    <th class="column2">Buyer <select id="select2"></select></th>
+                    <th class="column3">Double Escrow <select id="select3"></select></th>
+                    <th class="column4">Title Company/Attorney <select id="select4"></select></th>
+                    <th class="column5">Title Officer Name <select id="select5"></select></th>
+                    <th class="column6">Title Company Email <select id="select6"></select></th>
+                    <th class="column7">Title Company Phone Number <select id="select7"></select></th>
+                    <th class="column8">Signer's Name <select id="select8"></select></th>
+                    <th class="column9">Vesting <select id="select9"></select></th>
+                    <th class="column10">Contract Price <select id="select10"></select></th>
+                    <th class="column11">EMD <select id="select11"></select></th>
+                    <th class="column12">Are We Paying Closing Cost <select id="select12"></select></th>
+                    <th class="column13">Close of Escrow <select id="select13"></select></th>
+                    <th class="column14">Closing Sooner? <select id="select14"></select></th>
+                    <th class="column15">Contract Executed Date <select id="select15"></select></th>
+                    <th class="column16">Buyer's Phone Number <select id="select16"></select></th>
+                    <th class="column17">Docusign Email <select id="select17"></select></th>
+                    <th class="column18">Name <select id="select18"></select></th>
+                 </tr>
+              </thead>
+
+              <tbody class="tableBody">
+                <tr class="dataRow" style="display: none;">
+                  <td class="column1" id="propertyAddress"></td>
+                  <td class="column2" id="buyer"></td>
+                  <td class="column3" id="doubleEscrow"></td>
+                  <td class="column4" id="titleComp"></td>
+                  <td class="column5" id="titleOfficer"></td>
+                  <td class="column6" id="titleEmail"></td>
+                  <td class="column7" id="compNum"></td>
+                  <td class="column8" id="signerName"></td>
+                  <td class="column9" id="vester"></td>
+                  <td class="column10" id="contractPrice"></td>
+                  <td class="column11" id="EMD"></td>
+                  <td class="column12" id="closingCost"></td>
+                  <td class="column13" id="closeEscrow"></td>
+                  <td class="column14" id="closeSooner"></td>
+                  <td class="column15" id="exeEscrow"></td>
+                  <td class="column16" id="buyNum"></td>
+                  <td class="column17" id="docusign"></td>
+                  <td class="column18" id="userName"></td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+<footer>
+  <div class='bottomLogo'>
+    <img class="logo" src="/Logos/Keyglee Dispo Logo.png" alt="KeyGlee Logo" width="100" height="93">
+  </div>
+  <div class="footer">
+      <a href="/home.html" class="foot">
+      <h3 class="footerList">Home</h3>
+      </a>
+      <a href="https://theglobalsystemsolutions.itclientportal.com/ClientPortal/LandingPage/LandingPage.aspx?fromLogin=1" target="blank" class="foot">
+          <h3 class="footerList">IT Support</h3>
+      </a>
+      <a href="https://podio.com/home" class="foot">
+          <h3 class="footerList">Podio</h3>
+      </a>
+
+      <a href="https://app.close.com/login/" class="foot">
+          <h3 class="footerList">Close</h3>
+      </a>
+      <a href="https://gms.prismhr.com/gms.corp/dbweb.asp?dbcgm=1" class="foot">
+          <h3 class="footerList">GMS Portal</h3>
+      </a>
+      <a href="#" class="foot">
+        <h3 class="footerList">Keyglee Newsletter</h3>
+    </a>
+  </div>
+  <ul class="socialList">
+      <li><a href="https://www.instagram.com/keygleedispo/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a></div></li>
+      <li><a href="https://www.facebook.com/keygleedispo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+      <li><a href="https://twitter.com/keygleedispo"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/aem-real-estate-group/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+  </ul>
+</footer>
+
+<!-------------------------------------------------------------------Scripts------------------------------------------------>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- // function myFilter() {
+//   // Declare variables
+//   var input, filter, ul, li, a, i, txtValue;
+//   input = document.getElementById('myInput');
+//   filter = input.value.toUpperCase();
+//   ul = document.getElementById("myUL");
+//   li = ul.getElementsByTagName('li');
+
+//   // Loop through all list items, and hide those who don't match the search query
+//   for (i = 0; i < li.length; i++) {
+//     a = li[i].getElementsByTagName("a")[0];
+//     txtValue = a.textContent || a.innerText;
+//     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//       li[i].style.display = "";
+//     } else {
+//       li[i].style.display = "none";
+//     }
+//   }
+// }
+
+
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+} -->
+
+
+<script src="dispoFormData.js"></script>
+</body>
+</html>
